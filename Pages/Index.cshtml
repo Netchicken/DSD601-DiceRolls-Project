@@ -1,0 +1,31 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+<div class="card" style=" margin-top: 20px">
+<div class="card-header">
+<h1>Add Your Title</h1>
+  @*<img src ="~/images/@Model.Image" class="card-img-top img-fluid img-thumbnail rounded mx-auto d-block"/> *@ 
+</div>
+ <div class="card-body">
+<form method="post" >  
+        <div class="form-group">  
+           <div class="row">  
+       @*     <label asp-for="Fah" class="col-lg-2"></label>  
+            <input type="number" asp-for="Fah" class="col-lg-2" />  *@
+        </div>  
+                 
+        <div class="row">  
+            <input type="submit" value="Submit" asp-action="Index" />  
+        </div>  
+    </div>  
+</form>   
+</div>
+<div class="card-footer">
+<div class="row">  
+            <label asp-for="Result" class="col-lg-2"></label>  
+            <p>@Model.Result  </p>
+                 </div> 
+</div>
+</div>
