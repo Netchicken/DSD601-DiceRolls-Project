@@ -5,15 +5,25 @@
 }
 <div class="card" style=" margin-top: 20px">
 <div class="card-header">
-<h1>Add Your Title</h1>
+<h1>Rolling two dice</h1>
   @*<img src ="~/images/@Model.Image" class="card-img-top img-fluid img-thumbnail rounded mx-auto d-block"/> *@ 
 </div>
  <div class="card-body">
 <form method="post" >  
         <div class="form-group">  
            <div class="row">  
-       @*     <label asp-for="Fah" class="col-lg-2"></label>  
-            <input type="number" asp-for="Fah" class="col-lg-2" />  *@
+     @if (Model.Dice.Count > 0)
+     {          
+               <ul>
+                   @foreach (var item in Model.Dice)
+                   {
+                       <li>@item</li>
+                      }
+               </ul>
+
+     }
+
+
         </div>  
                  
         <div class="row">  
@@ -24,8 +34,8 @@
 </div>
 <div class="card-footer">
 <div class="row">  
-            <label asp-for="Result" class="col-lg-2"></label>  
-            <p>@Model.Result  </p>
+            <label asp-for="Dice" class="col-lg-2">How many rolls =  @Model.Dice.Count</label>  
+         @*   <p>@Model.Result  </p>*@
                  </div> 
 </div>
 </div>
