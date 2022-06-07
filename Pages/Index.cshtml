@@ -14,10 +14,10 @@
            <div class="row">  
      @if (Model.Dice.Count > 0)
      {          
-               <ul>
+               <ul class="list-group list-group-horizontal">
                    @foreach (var item in Model.Dice)
                    {
-                       <li>@item</li>
+                       <li class="list-group-item">@item</li>
                       }
                </ul>
 

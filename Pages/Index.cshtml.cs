@@ -1,6 +1,4 @@
-﻿using dsd601DiceRolls2020.Operation;
-
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace dsd601DiceRolls2020.Pages
@@ -17,21 +15,11 @@ namespace dsd601DiceRolls2020.Pages
 
         public void OnGet()
         {
-
-
-
-
         }
 
         public void OnPost()
         {
-
-            // Dice = new List<string>();
-            if (Dice.Count > 0)
-            {
-                Dice.Clear();
-            }
-
+            Dice = new List<string>();
 
             var list = DiceRoll();
 
@@ -55,14 +43,14 @@ namespace dsd601DiceRolls2020.Pages
                 Dice2 = myrandom.Next(1, 7);
 
                 //Add them to the listview 
-                DiceList.DiceRolls.Add(Dice1 + " " + Dice2);
+                Dice.Add(Dice1 + " " + Dice2);
 
                 //while Dice 1 doesn't equal Dice 2
             } while (Dice1 != Dice2);
 
 
 
-            return DiceList.DiceRolls;
+            return Dice;
 
 
         }
