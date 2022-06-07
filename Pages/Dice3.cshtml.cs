@@ -3,12 +3,12 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace dsd601DiceRolls2020.Pages
 {
-    public class IndexModel : PageModel
+    public class Dice3Model : PageModel
     {
         [BindProperty]
         public List<string>? Dice { get; set; }
 
-        public IndexModel()
+        public Dice3Model()
         {
             //instantiate the List
             Dice = new List<string>();
@@ -33,21 +33,33 @@ namespace dsd601DiceRolls2020.Pages
             //Define a random generator that uses milliseconds as the seed 
             Random myrandom = new(DateTime.Now.Millisecond);
 
+            //We need a boolean,(True, False) to tell us when the values match
+            bool RollDiceAgain = true;
+
+
+
             //Create and set the values of the 2 dice 
             int Dice1;
             int Dice2;
-
+            int Dice3;
             do  //roll the dice while ....
             {
                 //pass the random number to two variables 
                 Dice1 = myrandom.Next(1, 7);
                 Dice2 = myrandom.Next(1, 7);
+                Dice3 = myrandom.Next(1, 7);
 
                 //Add them to the list
-                Dice.Add(Dice1 + " " + Dice2);
+                Dice.Add(Dice1 + " " + Dice2 + " " + Dice3);
+
+                //if you just use while ((Dice1 != Dice2) && (Dice1 != Dice3) && (Dice2 != Dice3)
+                //we seem to get it stopped on 1 pair.
 
                 //while Dice 1 doesn't equal Dice 2
-            } while (Dice1 != Dice2);
+                if ((Dice1 == Dice2) && (Dice2 == Dice3))
+                { RollDiceAgain = false; }
+            } while (RollDiceAgain == true);
+
 
 
 

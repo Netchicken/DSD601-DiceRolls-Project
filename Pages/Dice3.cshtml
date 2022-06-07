@@ -1,0 +1,45 @@
+﻿@page
+@model Dice3Model
+@{
+    ViewData["Title"] = "Home page";
+}
+<div class="card" style=" margin-top: 20px">
+<div class="card-header">
+<h1>Rolling three Dice</h1>
+  @*<img src ="~/images/@Model.Image" class="card-img-top img-fluid img-thumbnail rounded mx-auto d-block"/> *@ 
+</div>
+ <div class="card-body">
+<form method="post" >  
+        <div class="form-group">  
+            <div class="row">
+                @if (Model.Dice.Count > 0)
+                {
+                    //https://getbootstrap.com/docs/5.0/components/list-group/
+                    <ul class="list-group list-group-horizontal">
+                        @foreach (var item in Model.Dice)
+                        {
+                            <li class="d-flex flex-wrap">  @item  </li>
+                        }
+                    </ul>
+
+                }
+                @*list-group-item*@
+
+            </div>  
+                 
+        <div class="row">  
+            <input type="submit" value="Submit" asp-action="Index" />  
+        </div>  
+    </div>  
+</form>   
+</div>
+<div class="card-footer">
+    <div class="row">
+        <label asp-for="Dice" >How many rolls =  @Model.Dice.Count Last roll = @Model.Dice.Last() </label>
+
+
+
+    
+    </div> 
+</div>
+</div>
