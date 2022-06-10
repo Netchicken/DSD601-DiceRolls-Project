@@ -7,11 +7,15 @@ namespace dsd601DiceRolls2020.Pages
     {
         [BindProperty]
         public List<string>? Dice { get; set; }
+        
+        //Define a random generator that uses milliseconds as the seed 
+        private Random myrandom;
 
         public Dice1Model()
         {
             //instantiate the List
             Dice = new List<string>();
+            myrandom = new(DateTime.Now.Millisecond);
         }
 
         public void OnGet()
@@ -29,10 +33,6 @@ namespace dsd601DiceRolls2020.Pages
 
         private List<string> DiceRoll()
         {
-
-            //Define a random generator that uses milliseconds as the seed 
-            Random myrandom = new(DateTime.Now.Millisecond);
-
             int Dice1;
 
 
