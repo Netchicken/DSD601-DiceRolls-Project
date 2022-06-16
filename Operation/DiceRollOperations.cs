@@ -24,6 +24,8 @@
             return Dice;
         }
 
+
+
         public static List<string> DiceRoll2()
         {
             //Define a random generator that uses milliseconds as the seed 
