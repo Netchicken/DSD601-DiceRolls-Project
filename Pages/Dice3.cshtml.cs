@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using dsd601DiceRolls2020.Operation;
+
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace dsd601DiceRolls2020.Pages
@@ -22,7 +24,8 @@ namespace dsd601DiceRolls2020.Pages
         {
             Dice = new List<string>();
 
-            var list = DiceRoll();
+            //now the dicerolls are running from their open class
+            var list = DiceRollOperations.DiceRoll3();
 
             Dice.AddRange(list);
         }

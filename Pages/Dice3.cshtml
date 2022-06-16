@@ -35,11 +35,11 @@
 </div>
 <div class="card-footer">
     <div class="row">
-        <label asp-for="Dice" >How many rolls =  @Model.Dice.Count Last roll = @Model.Dice.Last() </label>
-
-
-
-    
-    </div> 
+        <label> How many rolls =  @Model.Dice.Count </label>
+    @if (Model.Dice.Count > 0)
+           {
+          <p> Last roll = @Model.Dice.Last() </p>
+           }
+</div> 
 </div>
 </div>
